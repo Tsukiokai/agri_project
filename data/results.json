@@ -1,0 +1,983 @@
+{
+  "raw_rows": 1545,
+  "duplicates_removed": 45,
+  "yield_unit_fixed": 57,
+  "price_format_fixed": 75,
+  "anomalies": {
+    "rainfall_mm": 12,
+    "soil_ph": 8,
+    "area_ha": 10,
+    "avg_temp_c": 6
+  },
+  "missing_before": {
+    "rainfall_mm": 89,
+    "avg_temp_c": 73,
+    "fertilizer_kg_ha": 155,
+    "soil_ph": 112,
+    "yield_t_ha": 36,
+    "farmgate_price_inr_qtl": 155,
+    "irrigation": 54,
+    "area_ha": 10
+  },
+  "yield_outliers": 28,
+  "plausibility_removed": 11,
+  "rows_dropped_no_yield": 36,
+  "missing_after": 0,
+  "clean_rows": 1425,
+  "rows_removed_total": 120,
+  "describe": [
+    [
+      "area_ha",
+      2.51,
+      1.57,
+      0.34,
+      2.14,
+      11.58
+    ],
+    [
+      "rainfall_mm",
+      346.62,
+      158.5,
+      80.0,
+      339.39,
+      867.28
+    ],
+    [
+      "avg_temp_c",
+      26.0,
+      2.53,
+      17.34,
+      26.23,
+      34.75
+    ],
+    [
+      "fertilizer_kg_ha",
+      108.67,
+      32.2,
+      20.0,
+      108.28,
+      230.26
+    ],
+    [
+      "soil_ph",
+      6.6,
+      0.48,
+      4.84,
+      6.58,
+      8.13
+    ],
+    [
+      "yield_t_ha",
+      8.2,
+      8.15,
+      1.28,
+      4.38,
+      32.06
+    ],
+    [
+      "farmgate_price_inr_qtl",
+      2542.65,
+      764.83,
+      1331.76,
+      2339.96,
+      4909.49
+    ],
+    [
+      "transport_cost_inr_qtl",
+      96.19,
+      24.67,
+      3.8,
+      96.5,
+      164.2
+    ]
+  ],
+  "yield_by_crop": [
+    [
+      "Maize",
+      5.2,
+      0.85
+    ],
+    [
+      "Ragi",
+      2.45,
+      0.41
+    ],
+    [
+      "Rice",
+      3.95,
+      0.64
+    ],
+    [
+      "Tomato",
+      22.44,
+      3.6
+    ]
+  ],
+  "yield_by_irrig": {
+    "Borewell": 1.004,
+    "Canal": 1.035,
+    "Drip": 1.068,
+    "Rainfed": 0.885
+  },
+  "price_growth": {
+    "2019": 2312.0,
+    "2020": 2452.0,
+    "2021": 2480.0,
+    "2022": 2610.0,
+    "2023": 2637.0,
+    "2024": 2776.0
+  },
+  "corr_yield_idx": {
+    "rainfall_mm": 0.51,
+    "avg_temp_c": 0.26,
+    "fertilizer_kg_ha": 0.55,
+    "soil_ph": -0.04,
+    "area_ha": 0.01,
+    "yield_idx": 1.0,
+    "farmgate_price_inr_qtl": -0.1
+  },
+  "n_train": 1140,
+  "n_test": 285,
+  "model_table": [
+    [
+      "Baseline (mean)",
+      0.134,
+      0.163,
+      -0.006,
+      null
+    ],
+    [
+      "Linear Regression",
+      0.068,
+      0.086,
+      0.719,
+      0.693
+    ],
+    [
+      "Decision Tree (depth 5)",
+      0.077,
+      0.097,
+      0.642,
+      0.56
+    ],
+    [
+      "Random Forest (200 trees)",
+      0.069,
+      0.086,
+      0.721,
+      0.666
+    ]
+  ],
+  "lr_coefs": {
+    "rainfall_mm": 0.075,
+    "avg_temp_c": -0.004,
+    "fertilizer_kg_ha": 0.084,
+    "soil_ph": -0.003,
+    "area_ha": 0.003,
+    "irr_Canal": 0.038,
+    "irr_Drip": 0.082,
+    "irr_Rainfed": -0.112,
+    "season_Rabi": -0.022
+  },
+  "rf_importance": {
+    "irr_Canal": 0.003,
+    "season_Rabi": 0.008,
+    "irr_Drip": 0.015,
+    "area_ha": 0.019,
+    "soil_ph": 0.024,
+    "avg_temp_c": 0.06,
+    "irr_Rainfed": 0.156,
+    "rainfall_mm": 0.331,
+    "fertilizer_kg_ha": 0.383
+  },
+  "best_model": "Linear Regression",
+  "resid_mean": 0.0039,
+  "resid_std": 0.0862,
+  "fert_effect_per_10kg": 0.0261,
+  "rain_effect_per_100mm": 0.0474,
+  "irr_effects": {
+    "irr_Canal": 0.038,
+    "irr_Drip": 0.082,
+    "irr_Rainfed": -0.112
+  },
+  "price_trend_slope": 85.9,
+  "price_forecast_2025": 2845.0,
+  "price_pct_growth_pa": 3.38,
+  "stats": {
+    "anova_irrigation": {
+      "F": 90.85,
+      "p": 8.749464635167692e-54
+    },
+    "pearson_rainfall_mm": {
+      "r": 0.509,
+      "p": 1.2104678013831326e-94
+    },
+    "pearson_fertilizer_kg_ha": {
+      "r": 0.547,
+      "p": 3.392864390073927e-112
+    },
+    "pearson_avg_temp_c": {
+      "r": 0.257,
+      "p": 7.179952222995008e-23
+    },
+    "pearson_soil_ph": {
+      "r": -0.037,
+      "p": 0.16026603011683488
+    },
+    "ttest_season_price_idx": {
+      "t": 7.35,
+      "p": 3.788980703649563e-13
+    },
+    "district_yield_idx": {
+      "Tumakuru": 0.965,
+      "Raichur": 0.967,
+      "Kolar": 0.981,
+      "Mandya": 0.991,
+      "Mysuru": 0.994,
+      "Dharwad": 1.008,
+      "Hassan": 1.051,
+      "Belagavi": 1.053
+    },
+    "rainfed_share_pct": 22.4,
+    "mean_revenue_per_ha": {
+      "Maize": 118395.0,
+      "Ragi": 87929.0,
+      "Rice": 94280.0,
+      "Tomato": 395356.0
+    }
+  },
+  "w5": {
+    "rev_lakh_per_ha": {
+      "Maize": 1.18,
+      "Ragi": 0.88,
+      "Rice": 0.94,
+      "Tomato": 3.95
+    },
+    "transport_share_pct": {
+      "Maize": 4.3,
+      "Ragi": 2.7,
+      "Rice": 4.0,
+      "Tomato": 5.5
+    },
+    "gain_idx": 0.194,
+    "gain_per_rainfed_ha_inr": {
+      "Maize": 23076,
+      "Ragi": 17146,
+      "Rice": 18373,
+      "Tomato": 77137
+    },
+    "rainfed_records": 319,
+    "rainfed_area_ha": 791.2,
+    "total_area_ha": 3569.7,
+    "avg_gain_per_rainfed_ha": 36953,
+    "rainfed_area_share_pct": 22.2,
+    "scenario_lakh_per_1000ha": {
+      "25": 20.5,
+      "50": 41.0,
+      "100": 81.9
+    },
+    "district_table": [
+      [
+        "Tumakuru",
+        0.965,
+        22.5,
+        4.2
+      ],
+      [
+        "Raichur",
+        0.967,
+        20.4,
+        4.1
+      ],
+      [
+        "Kolar",
+        0.981,
+        27.6,
+        3.9
+      ],
+      [
+        "Mandya",
+        0.991,
+        25.7,
+        4.0
+      ],
+      [
+        "Mysuru",
+        0.994,
+        21.4,
+        4.1
+      ],
+      [
+        "Dharwad",
+        1.008,
+        20.4,
+        4.3
+      ],
+      [
+        "Hassan",
+        1.051,
+        17.2,
+        4.2
+      ],
+      [
+        "Belagavi",
+        1.053,
+        24.1,
+        4.1
+      ]
+    ]
+  },
+  "eda": {
+    "dq": {
+      "completeness": [
+        96.8,
+        100.0
+      ],
+      "validity": [
+        99.4,
+        100.0
+      ],
+      "uniqueness": [
+        97.1,
+        100.0
+      ],
+      "format": [
+        95.6,
+        100.0
+      ],
+      "labels": [
+        63,
+        18
+      ]
+    },
+    "imputation_rmse": {
+      "fertilizer_kg_ha": {
+        "Mean (global)": 30.82,
+        "Median (global)": 30.78,
+        "Group median (district + season)": 30.87,
+        "Group median (district + season + crop)": 31.57
+      },
+      "rainfall_mm": {
+        "Mean (global)": 151.71,
+        "Median (global)": 151.67,
+        "Group median (district + season)": 83.29,
+        "Group median (district + season + crop)": 85.48
+      }
+    },
+    "eda_desc": [
+      [
+        "area_ha",
+        2.51,
+        2.14,
+        1.57,
+        62.6,
+        0.34,
+        11.58,
+        1.58,
+        3.97
+      ],
+      [
+        "rainfall_mm",
+        346.62,
+        339.39,
+        158.5,
+        45.7,
+        80.0,
+        867.28,
+        0.26,
+        -0.56
+      ],
+      [
+        "avg_temp_c",
+        26.0,
+        26.23,
+        2.53,
+        9.8,
+        17.34,
+        34.75,
+        -0.12,
+        -0.26
+      ],
+      [
+        "fertilizer_kg_ha",
+        108.67,
+        108.28,
+        32.2,
+        29.6,
+        20.0,
+        230.26,
+        0.07,
+        0.41
+      ],
+      [
+        "soil_ph",
+        6.6,
+        6.58,
+        0.48,
+        7.2,
+        4.84,
+        8.13,
+        0.03,
+        0.23
+      ],
+      [
+        "yield_t_ha",
+        8.2,
+        4.38,
+        8.15,
+        99.5,
+        1.28,
+        32.06,
+        1.34,
+        0.15
+      ],
+      [
+        "farmgate_price_inr_qtl",
+        2542.65,
+        2339.96,
+        764.83,
+        30.1,
+        1331.76,
+        4909.49,
+        0.89,
+        -0.09
+      ],
+      [
+        "transport_cost_inr_qtl",
+        96.19,
+        96.5,
+        24.67,
+        25.6,
+        3.8,
+        164.2,
+        -0.1,
+        -0.09
+      ],
+      [
+        "yidx",
+        1.0,
+        1.0,
+        0.16,
+        16.4,
+        0.53,
+        1.47,
+        0.08,
+        -0.27
+      ]
+    ],
+    "price_idx_by_month": {
+      "1": 1.039,
+      "6": 0.988,
+      "7": 0.964,
+      "8": 0.987,
+      "11": 1.022,
+      "12": 1.024
+    },
+    "year_trend": [
+      [
+        2019.0,
+        0.999,
+        342.619,
+        0.906
+      ],
+      [
+        2020.0,
+        1.017,
+        343.957,
+        0.942
+      ],
+      [
+        2021.0,
+        1.004,
+        338.387,
+        0.984
+      ],
+      [
+        2022.0,
+        0.978,
+        340.001,
+        1.023
+      ],
+      [
+        2023.0,
+        0.994,
+        346.817,
+        1.066
+      ],
+      [
+        2024.0,
+        1.007,
+        366.518,
+        1.084
+      ]
+    ],
+    "heat_min": [
+      0.94,
+      1.07
+    ],
+    "pearson_spearman": [
+      [
+        "rainfall_mm",
+        0.509,
+        0.507
+      ],
+      [
+        "avg_temp_c",
+        0.257,
+        0.26
+      ],
+      [
+        "fertilizer_kg_ha",
+        0.547,
+        0.523
+      ],
+      [
+        "soil_ph",
+        -0.037,
+        -0.025
+      ],
+      [
+        "area_ha",
+        0.013,
+        0.016
+      ],
+      [
+        "transport_cost_inr_qtl",
+        0.047,
+        0.031
+      ]
+    ],
+    "rain_by_season": {
+      "Kharif": 444.0,
+      "Rabi": 213.0
+    },
+    "yidx_by_season": {
+      "Kharif": 1.052,
+      "Rabi": 0.929
+    },
+    "yield_cv_by_crop": {
+      "Maize": 16.3,
+      "Ragi": 16.9,
+      "Rice": 16.2,
+      "Tomato": 16.0
+    },
+    "price_cv_by_crop": {
+      "Maize": 9.3,
+      "Ragi": 15.8,
+      "Rice": 9.2,
+      "Tomato": 14.3
+    },
+    "simpson": {
+      "pooled": -0.63,
+      "within": {
+        "Maize": -0.31,
+        "Ragi": -0.19,
+        "Rice": -0.3,
+        "Tomato": -0.25
+      }
+    },
+    "records_by_crop": {
+      "Ragi": 374,
+      "Rice": 367,
+      "Maize": 350,
+      "Tomato": 334
+    }
+  },
+  "stat": {
+    "hypotheses": [
+      [
+        "H1",
+        "Fertiliser rate is positively related to yield index",
+        "Pearson correlation",
+        "r = 0.547",
+        3.392864390073927e-112,
+        "Reject H0"
+      ],
+      [
+        "H2",
+        "Seasonal rainfall is positively related to yield index",
+        "Pearson correlation",
+        "r = 0.509",
+        1.2104678013831326e-94,
+        "Reject H0"
+      ],
+      [
+        "H3",
+        "Mean yield index differs across irrigation types",
+        "One-way ANOVA",
+        "F = 90.85",
+        8.749464635167692e-54,
+        "Reject H0"
+      ],
+      [
+        "H3b",
+        "Same as H3, without assuming normality",
+        "Kruskal-Wallis",
+        "H = 221.73",
+        8.47334019515714e-48,
+        "Reject H0"
+      ],
+      [
+        "H4",
+        "Price index differs between Rabi and Kharif",
+        "Welch t-test",
+        "t = 7.35",
+        3.788980703649563e-13,
+        "Reject H0"
+      ],
+      [
+        "H5",
+        "Soil pH is linearly related to yield index",
+        "Pearson correlation",
+        "r = -0.037",
+        0.16026603011683488,
+        "Fail to reject H0"
+      ]
+    ],
+    "tukey": [
+      [
+        "Borewell vs Canal",
+        -0.031,
+        0.017062123915012162
+      ],
+      [
+        "Borewell vs Drip",
+        -0.065,
+        5.25248781912957e-07
+      ],
+      [
+        "Borewell vs Rainfed",
+        0.119,
+        0.0
+      ],
+      [
+        "Canal vs Drip",
+        -0.033,
+        0.016308120242794488
+      ],
+      [
+        "Canal vs Rainfed",
+        0.15,
+        0.0
+      ],
+      [
+        "Drip vs Rainfed",
+        0.184,
+        0.0
+      ]
+    ],
+    "ols_coef": [
+      [
+        "Intercept",
+        0.6042,
+        0.0508,
+        11.89,
+        3.974967792530475e-31,
+        0.5044,
+        0.7039
+      ],
+      [
+        "irrigation: Canal",
+        0.031,
+        0.0063,
+        4.93,
+        8.974392228359434e-07,
+        0.0187,
+        0.0434
+      ],
+      [
+        "irrigation: Drip",
+        0.0746,
+        0.0072,
+        10.4,
+        1.7751491325896054e-24,
+        0.0605,
+        0.0886
+      ],
+      [
+        "irrigation: Rainfed",
+        -0.1183,
+        0.0069,
+        -17.09,
+        1.1632576724637364e-59,
+        -0.1318,
+        -0.1047
+      ],
+      [
+        "season: Rabi",
+        -0.0118,
+        0.0084,
+        -1.4,
+        0.16213732866644592,
+        -0.0284,
+        0.0048
+      ],
+      [
+        "rainfall_mm",
+        0.0005,
+        0.0,
+        22.83,
+        1.7817900684971133e-98,
+        0.0005,
+        0.0005
+      ],
+      [
+        "avg_temp_c",
+        -0.0004,
+        0.0013,
+        -0.32,
+        0.7460980098209571,
+        -0.003,
+        0.0022
+      ],
+      [
+        "fertilizer_kg_ha",
+        0.0026,
+        0.0001,
+        35.78,
+        3.0151760113950033e-200,
+        0.0025,
+        0.0028
+      ],
+      [
+        "soil_ph",
+        -0.0073,
+        0.005,
+        -1.48,
+        0.1399588106745822,
+        -0.0171,
+        0.0024
+      ],
+      [
+        "area_ha",
+        0.0021,
+        0.0015,
+        1.41,
+        0.15853836282063366,
+        -0.0008,
+        0.0051
+      ]
+    ],
+    "ols_fit": {
+      "r2": 0.704,
+      "adj_r2": 0.702,
+      "F": 374.6,
+      "F_p": 0.0,
+      "n": 1425,
+      "aic": -2834.5,
+      "df_model": 9,
+      "resid_se": 0.0892
+    },
+    "robust_vs_classic_se": {
+      "rainfall_mm": [
+        2.2e-05,
+        2.2e-05
+      ],
+      "avg_temp_c": [
+        0.001333,
+        0.001493
+      ],
+      "fertilizer_kg_ha": [
+        7.4e-05,
+        6.9e-05
+      ]
+    },
+    "std_beta": {
+      "rainfall_mm": 0.477,
+      "avg_temp_c": -0.007,
+      "fertilizer_kg_ha": 0.518,
+      "soil_ph": -0.021,
+      "area_ha": 0.02
+    },
+    "vif": [
+      [
+        "C(irrigation)[T.Canal]",
+        1.58
+      ],
+      [
+        "C(irrigation)[T.Drip]",
+        1.46
+      ],
+      [
+        "C(irrigation)[T.Rainfed]",
+        1.49
+      ],
+      [
+        "C(season)[T.Rabi]",
+        3.12
+      ],
+      [
+        "rainfall_mm",
+        2.09
+      ],
+      [
+        "avg_temp_c",
+        2.04
+      ],
+      [
+        "fertilizer_kg_ha",
+        1.0
+      ],
+      [
+        "soil_ph",
+        1.0
+      ],
+      [
+        "area_ha",
+        1.0
+      ]
+    ],
+    "diag": {
+      "bp_lm": 6.92,
+      "bp_p": 0.6453495534921756,
+      "jb": 62.17,
+      "jb_p": 3.1615732626624914e-14,
+      "skew": 0.185,
+      "kurt": 3.954,
+      "dw": 1.97,
+      "shapiro_p": 0.0031966646540794014
+    },
+    "cook": {
+      "max": 0.0177,
+      "n_gt_4n": 76,
+      "threshold": 0.0028
+    },
+    "reset": {
+      "t": 0.8,
+      "p": 0.42550393039712703
+    },
+    "coef_plot_rows": [
+      [
+        "Fertiliser (+10 kg/ha)",
+        0.0263,
+        0.0249,
+        0.0277
+      ],
+      [
+        "Rainfall (+100 mm)",
+        0.0492,
+        0.045,
+        0.0535
+      ],
+      [
+        "Temperature (+1 C)",
+        -0.0004,
+        -0.003,
+        0.0022
+      ],
+      [
+        "Soil pH (+1 unit)",
+        -0.0073,
+        -0.0171,
+        0.0024
+      ],
+      [
+        "Farm area (+1 ha)",
+        0.0021,
+        -0.0008,
+        0.0051
+      ],
+      [
+        "Canal vs borewell",
+        0.031,
+        0.0187,
+        0.0434
+      ],
+      [
+        "Drip vs borewell",
+        0.0746,
+        0.0605,
+        0.0886
+      ],
+      [
+        "Rainfed vs borewell",
+        -0.1183,
+        -0.1318,
+        -0.1047
+      ],
+      [
+        "Rabi vs Kharif",
+        -0.0118,
+        -0.0284,
+        0.0048
+      ]
+    ],
+    "per_crop": {
+      "Maize": {
+        "fert10": 0.0281,
+        "rain100": 0.0481,
+        "r2": 0.663,
+        "n": 350
+      },
+      "Ragi": {
+        "fert10": 0.0248,
+        "rain100": 0.0556,
+        "r2": 0.73,
+        "n": 374
+      },
+      "Rice": {
+        "fert10": 0.0282,
+        "rain100": 0.0449,
+        "r2": 0.75,
+        "n": 367
+      },
+      "Tomato": {
+        "fert10": 0.0244,
+        "rain100": 0.0471,
+        "r2": 0.71,
+        "n": 334
+      }
+    },
+    "oos": {
+      "r2": 0.719,
+      "mae": 0.068,
+      "r2_train": 0.7,
+      "n_test": 285
+    },
+    "mae_by_irrig": {
+      "Borewell": 0.075,
+      "Canal": 0.078,
+      "Drip": 0.068,
+      "Rainfed": 0.048
+    },
+    "mae_by_crop": {
+      "Maize": 0.066,
+      "Ragi": 0.067,
+      "Rice": 0.06,
+      "Tomato": 0.078
+    },
+    "price_model": {
+      "r2": 0.337,
+      "coef": [
+        [
+          "Intercept",
+          1.0382,
+          0.0,
+          0.9999,
+          1.0764
+        ],
+        [
+          "season: Rabi",
+          0.0326,
+          3.502812965718926e-08,
+          0.0211,
+          0.0442
+        ],
+        [
+          "yidx",
+          -0.1434,
+          1.5783173714426042e-15,
+          -0.1783,
+          -0.1085
+        ],
+        [
+          "year trend (per year)",
+          0.0369,
+          3.4544290250134293e-106,
+          0.0339,
+          0.04
+        ]
+      ]
+    }
+  }
+}
